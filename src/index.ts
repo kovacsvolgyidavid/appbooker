@@ -1,14 +1,13 @@
 console.log("started2");
 import dotenv = require('dotenv');
-import connection from './db/database';
-import { error } from 'console';
+import {getConnection} from './db/database';
+import { getManager, EntityManager } from 'typeorm';
+import { Timetable } from './db/entities/timetable';
 
-connection.then(con=>{
-    con.query('select now()').then((res)=>{
-        console.log(res);
-    }).catch((err)=>{
-        console.log(err)
-    })
+getConnection().then(con=>{
+    const em: EntityManager = getManager();
+    const a : Timetable = {name:"doctor's appointments"}
+    em.save(Timetable, a).then(console.log).catch(console.log);
 
 }
     
