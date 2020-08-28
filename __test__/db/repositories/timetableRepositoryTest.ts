@@ -1,10 +1,9 @@
 import { TimetableRepository } from "../../../src/db/repositories/timetableRepository";
 import { testTimetable } from '../testEntities'
 import { getRepository } from "../../../src/db/database";
+import { emptyTest } from "../../emptyTestFile";
 
-test.skip('Util class skips', () => {
-    expect(1).toBe(1);
-});
+emptyTest();
 
 export const timetableRepositoryTestSuite: () => void = () => {
 
